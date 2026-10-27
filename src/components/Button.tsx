@@ -18,8 +18,10 @@ import React, { type ComponentProps, type ReactNode } from 'react'
 //     )
 // }
 
+type Variant = 'primary' | 'secondary' | 'ghost-destructive';
+
 type ButtonProps = {
-    variant?: 'primary' | 'secondary' | 'ghost-destructive';
+    variant?: Variant
 } & ComponentProps<'button'>;
 
 const Button = ({ ...props }: ButtonProps) => {
@@ -34,3 +36,16 @@ const Button = ({ ...props }: ButtonProps) => {
 }
 
 export default Button
+
+function getVariantStyles(variant: Variant) {
+    switch (variant) {
+        case "primary":
+            return "bg-violet-600 hover:bg-violet-500"
+        case "secondary":
+            return "bg-zinc-700 hover:bg-zinc-600 text-zinc-400"
+        case "ghost-destructive":
+            return "hover:bg-red-800 text-red-800 hover:text-red-200"
+        default:
+            throw new Error(`Invalid Variant: ${variant}`)
+    }
+}

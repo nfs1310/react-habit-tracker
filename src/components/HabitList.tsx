@@ -4,7 +4,7 @@ import HabitItem from "./HabitItem";
 const HabitList = () => {
     const habits = [
         {id: 1, name: 'name-1'},
-        {id: 2, name: 'name-2'},
+        // {id: 2, name: 'name-2'},
     ];
 
     if (habits.length === 0) {
